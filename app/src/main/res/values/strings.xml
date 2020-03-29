@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Learn to Earn</string>
+    <string name="btn_learn_to_earn">Learn to Earn!</string>
+    <string name="desc">Image</string>
+    <string name="button_login">Log In</string>
+    <string name="button_signup">Sign Up</string>
+    <string name="button_forgot_password">Forgot a password?</string>
+    <string name="image_google">Image</string>
+    <string name="button_reg_learntoearn">Learn to Earn!</string>
+    <string name="button_gog" />
+    <string name="title_activity_login">Sign in Log In</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or Register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+
+</resources>
