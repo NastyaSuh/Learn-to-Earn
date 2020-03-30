@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <ImageButton
+        android:id="@+id/mechanics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/mechanics"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="91dp"
+        />
+    <ImageButton
+        android:id="@+id/optic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/optic"
+        android:layout_alignTop="@+id/mechanics"
+        android:layout_toEndOf="@+id/mechanics"
+        android:layout_marginStart="39dp"/>
+    <ImageButton
+        android:id="@+id/molecular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/molecular"
+        android:layout_alignStart="@+id/mechanics"
+        android:layout_below="@+id/mechanics"
+        android:layout_marginTop="35dp"/>
+    <ImageButton
+        android:id="@+id/electro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/electro"
+        android:layout_alignTop="@+id/molecular"
+        android:layout_toEndOf="@+id/molecular"
+        android:layout_marginStart="32dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="#E9E5E5"
+        android:layout_marginTop="584dp"/>
+
+
+
+
+</RelativeLayout>
