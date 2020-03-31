@@ -13,11 +13,14 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.learntoearn.R;
 import com.example.learntoearn.Values.Users;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,10 +33,15 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     private Button button_login;
     private Button button_signup;
+    private Button reset_passw;
+    //private EditText editMail;
+    //private Button button_reset;
+    //private Button button_back;
     FirebaseAuth auth; //аутентификация пользователя
     FirebaseDatabase database; //подключаем базу данных
     DatabaseReference user; //работа с бд
     ConstraintLayout root;
+
     private FirebaseAuth mAuth;
 
     @Override
@@ -63,8 +71,59 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance(); //подключаем Firebase Database
         user = database.getReference("Users"); //работа с отважными людьми, которые осмелились пользовать нашу прогу
         root = findViewById(R.id.root_element);
+
+        reset_passw = (Button) findViewById(R.id.button3);
+        reset_passw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showResetwindow();
+            }
+        });
+
+
     }
 
+    private void showResetwindow() {
+        final AlertDialog.Builder dial = new AlertDialog.Builder(this);
+        dial.setTitle("Reset the password");
+        dial.setMessage("To reset password, enter your email, press the button and check the mail to follow instructions.");
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View Reset_activity = layoutInflater.inflate(R.layout.activity_reset_password, null);
+        dial.setView(Reset_activity);
+        final MaterialEditText emailres = Reset_activity.findViewById(R.id.emailresetField);
+        dial.setNegativeButton("Back", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialInterface, int which) {
+                dialInterface.dismiss();
+            }
+        });
+
+        dial.setPositiveButton("Reset", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialInt, int which) {
+                if(TextUtils.isEmpty(emailres.getText().toString())){
+                    Snackbar.make(root, "Enter your Email Address", Snackbar.LENGTH_LONG).show();
+                    return;
+                }
+                String email = emailres.getText().toString().trim();
+
+                mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Snackbar.make(root, "Check email to reset your password", Snackbar.LENGTH_SHORT).show();
+                        }
+
+                        else{
+                            Snackbar.make(root, "Failed to send reset password email", Snackbar.LENGTH_LONG).show();
+                        }
+
+                    }
+                });
+            }
+        });
+        dial.show();
+    }
 
 
     private void showRegister_Window() {
@@ -119,8 +178,14 @@ public class MainActivity extends AppCompatActivity {
                                     public void onSuccess(Void aVoid) {
                                         Snackbar.make(root, "New User is added!", Snackbar.LENGTH_LONG).show();
                                     }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Snackbar.make(root, "Something went wrong:("+e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                                    }
                                 });
                             }
+
                         });
             }
         });
