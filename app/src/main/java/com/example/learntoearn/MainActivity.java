@@ -30,6 +30,10 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.Map;
 
+/**
+ * Created by Susha Nastya on 03/31/2020.
+ */
+
 public class MainActivity extends AppCompatActivity {
     private Button button_login;
     private Button button_signup;
@@ -195,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showSignin_Window() {AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("Log in");
-        dialog.setMessage("Enter the information to sign in");
+        dialog.setMessage("Enter the information to log in");
 
         LayoutInflater inflater = LayoutInflater.from(this);
         View Signin_Window = inflater.inflate(R.layout.sing_in_window, null);
