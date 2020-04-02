@@ -17,6 +17,10 @@ import android.widget.EditText;
 
 import com.example.learntoearn.R;
 import com.example.learntoearn.Values.Users;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -38,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
     private Button button_login;
     private Button button_signup;
     private Button reset_passw;
+
+    private FirebaseAuth mAuth;
     //private EditText editMail;
     //private Button button_reset;
     //private Button button_back;
@@ -46,13 +52,10 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference user; //работа с бд
     ConstraintLayout root;
 
-    private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mAuth = FirebaseAuth.getInstance();
 
         button_login = (Button) findViewById(R.id.button_login);
@@ -83,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
                 showResetwindow();
             }
         });
-
-
     }
 
     private void showResetwindow() {

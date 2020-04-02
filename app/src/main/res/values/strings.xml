@@ -18,6 +18,12 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="button_acc">account</string>
+    <string name="button_gmail_log">Log in using Gmail</string>
+    <string name="description">Image</string>
+    <string name="usersname"></string>
+    <string name="email"></string>
+    <string name="button_log">Log</string>
+
 
 
 </resources>
