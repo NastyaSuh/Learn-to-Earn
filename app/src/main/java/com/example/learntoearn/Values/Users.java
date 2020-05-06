@@ -1,7 +1,8 @@
 package com.example.learntoearn.Values;
-
+import java.io.Serializable;
 public class Users {
     private String name, email, password;
+    //private String mPhotoUri;
 
     public Users(){}
 
@@ -34,4 +35,12 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    //public String getPhotoUri() {
+        //return mPhotoUri;
+    //}
+
+    //public void setPhotoUri(String PhotoUri) {
+        //this.mPhotoUri = mPhotoUri;
+    //}
 }

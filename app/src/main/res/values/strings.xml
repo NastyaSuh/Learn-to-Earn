@@ -21,8 +21,19 @@
     <string name="button_gmail_log">Log in using Gmail</string>
     <string name="description">Image</string>
     <string name="usersname"></string>
+    <string name="usersname1">Имя:</string>
     <string name="email"></string>
+    <string name="email1">Почта:</string>
     <string name="button_log">Log</string>
+    <string name="current_result">#дней</string>
+    <string name="current_result1"> Текущий рекорд</string>
+    <string name="personal_result">#дней</string>
+    <string name="personal_result1">Личный рекорд</string>
+    <string name="notification">Уведомления о занятиях</string>
+    <string name="circle">AppCompatImageView</string>
+    <string name="general_settings">Общие настройки</string>
+    <string name="profile_settings">Настройки профиля</string>
+    <string name="education_settings">Настройки обучения</string>
 
 
 
