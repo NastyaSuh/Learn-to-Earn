@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/change_photo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1FBF4"
+    android:backgroundTint="#F1FBF4"
+    app:cardBackgroundColor="#F1FBF4"
+    app:cardElevation="10dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="339dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#F1FBF4">
+
+        <Button
+            android:id="@+id/choose"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="@font/roboto_slab"
+            android:text="Выбрать"
+            android:textColor="#8F8989"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.162"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.053" />
+
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="36dp"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="@font/roboto_slab"
+            android:text="Загрузить"
+            android:textColor="#8F8989"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.053" />
+
+
+        <ImageView
+            android:id="@+id/photofromgallery"
+            android:layout_width="214dp"
+            android:layout_height="239dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.66"
+            app:srcCompat="@drawable/circle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
