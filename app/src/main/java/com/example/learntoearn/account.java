@@ -28,6 +28,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 /**
  * Created by Susha Nastya on 05/05/2020.
@@ -41,6 +43,12 @@ public class account extends AppCompatActivity {
      DatabaseReference reff;
      private ImageView mphoto;
      public static final int USER_KEY_GET_PHOTO = 100;
+     private TextView profile_settings;
+    private TextView education_settings;
+     private FirebaseStorage firebaseStorage;
+     private Uri filePath;
+     StorageReference storageReference;
+     private ImageView home_page;
 
     private View.OnClickListener mOnPhotoClickListener = new View.OnClickListener() {
         @Override
@@ -73,12 +81,17 @@ public class account extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+        //storageReference = storageReference;
+        //firebaseStorage = FirebaseStorage.getInstance();
+        profile_settings = findViewById(R.id.textView4);
         mAuth = FirebaseAuth.getInstance();
-        mphoto = (ImageView) findViewById(R.id.photofromgallery);
+        mphoto = findViewById(R.id.photofromgallery);
         mphoto.setOnClickListener(mOnPhotoClickListener);
-        text_name = (TextView) findViewById(R.id.username);
-        text_email = (TextView) findViewById(R.id.usersemail);
-        button_log = (Button) findViewById(R.id.button_log);
+        text_name = findViewById(R.id.username);
+        text_email = findViewById(R.id.usersemail);
+        button_log = findViewById(R.id.button_log);
+        education_settings = findViewById(R.id.textView5);
+        home_page = findViewById(R.id.home_page);
         button_log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +112,28 @@ public class account extends AppCompatActivity {
                 });
             }
         });
+        profile_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(account.this, Profile.class);
+                startActivity(intent);
+            }
+        });
+        education_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(account.this, Learning_process_settings.class);
+                startActivity(intent);
+            }
+        });
+        home_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(account.this, account.class);
+                startActivity(intent);
+            }
+        });
     }
-
-
 }
+
