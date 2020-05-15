@@ -53,7 +53,7 @@ import java.io.IOException;
  * Created by Susha Nastya on 05/05/2020.
  */
 
-public class account extends AppCompatActivity implements View.OnClickListener{
+public class edit_profile extends AppCompatActivity implements View.OnClickListener{
     private FirebaseAuth mAuth;
     private TextView textView_emailname;
     private DatabaseReference databaseReference;
@@ -70,7 +70,7 @@ public class account extends AppCompatActivity implements View.OnClickListener{
     private StorageReference storageReference;
     private ImageView home_page;
 
-    public account() {
+    public edit_profile() {
     }
 
     @Override
@@ -90,7 +90,7 @@ public class account extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account);
+        setContentView(R.layout.activity_editprofile);
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() == null) {
             finish();
@@ -120,17 +120,25 @@ public class account extends AppCompatActivity implements View.OnClickListener{
             }
         });
 
+        profile_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(edit_profile.this, Profile.class);
+                startActivity(intent);
+            }
+        });
         education_settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(account.this, Learning_process_settings.class);
+                Intent intent = new Intent(edit_profile.this, Learning_process_settings.class);
                 startActivity(intent);
             }
         });
         home_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(account.this, Profile.class);
+                Intent intent = new Intent(edit_profile.this, account.class);
                 startActivity(intent);
             }
         });
@@ -157,13 +165,13 @@ public class account extends AppCompatActivity implements View.OnClickListener{
                 userInformation();
                 //get User Data
                 finish();
-                startActivity(new Intent(account.this, Profile.class));
+                startActivity(new Intent(edit_profile.this, Profile.class));
             }
             else{
                 userInformation();
                 sendUserData();
                 finish();
-                startActivity(new Intent(account.this, Profile.class));
+                startActivity(new Intent(edit_profile.this, Profile.class));
             }
         }
     }
@@ -178,12 +186,12 @@ public class account extends AppCompatActivity implements View.OnClickListener{
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(account.this, "Ошибка в загрузке фотографии", Toast.LENGTH_LONG).show();
+                Toast.makeText(edit_profile.this, "Ошибка в загрузке фотографии", Toast.LENGTH_LONG).show();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(account.this, "Фотография успешно загружена", Toast.LENGTH_LONG).show();
+                Toast.makeText(edit_profile.this, "Фотография успешно загружена", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -215,6 +223,4 @@ public class account extends AppCompatActivity implements View.OnClickListener{
         okBT.setLayoutParams(neutralBtnLP);
     }
 }
-
-
 

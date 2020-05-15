@@ -28,6 +28,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -44,13 +45,11 @@ public class MainActivity extends AppCompatActivity {
     private Button reset_passw;
 
     private FirebaseAuth mAuth;
-    //private EditText editMail;
-    //private Button button_reset;
-    //private Button button_back;
     FirebaseAuth auth; //аутентификация пользователя
     FirebaseDatabase database; //подключаем базу данных
     DatabaseReference user; //работа с бд
     ConstraintLayout root;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void showResetwindow() {
         final AlertDialog.Builder dial = new AlertDialog.Builder(this);
@@ -230,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                startActivity(new Intent(MainActivity.this, account.class));
+                                startActivity(new Intent(MainActivity.this, Profile.class));
                                 finish();
                             }
                         }).addOnFailureListener(new OnFailureListener() {

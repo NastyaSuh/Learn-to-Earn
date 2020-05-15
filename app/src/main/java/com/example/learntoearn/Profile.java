@@ -11,25 +11,24 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 public class Profile extends AppCompatActivity {
-    private TextView change_photo;
     private ImageView homepage;
+
+    private ImageView settingstool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-         change_photo = findViewById(R.id.textView6);
-         homepage = findViewById(R.id.home_page);
-
-         change_photo.setOnClickListener(new View.OnClickListener() {
+        homepage = findViewById(R.id.home_page);
+        settingstool = findViewById(R.id.setting_tool);
+         homepage.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 Intent intent = new Intent(Profile.this, Change_photo.class);
+                 Intent intent = new Intent(Profile.this, Profile.class);
                  startActivity(intent);
              }
          });
-
-         homepage.setOnClickListener(new View.OnClickListener() {
+         settingstool.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
                  Intent intent = new Intent(Profile.this, account.class);
