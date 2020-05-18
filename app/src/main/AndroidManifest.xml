@@ -12,8 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Learning_process_settings"></activity>
-        <activity android:name=".Change_photo" />
+        <activity android:name=".edit_profile" />
+        <activity android:name=".Hello">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Learning_process_settings" />
         <activity android:name=".Profile" />
         <activity android:name=".Map_activity" />
         <activity android:name=".account" />

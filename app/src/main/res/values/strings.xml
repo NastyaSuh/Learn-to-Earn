@@ -38,6 +38,15 @@
     <string name="change_name">Изменить имя</string>
     <string name="add_notofications">Добавить уведомления</string>
     <string name="change_grade">Выбор класса обучения</string>
+    <string name="hello_text">Добро пожаловать!</string>
+    <string name="log_out">Выйти из системы</string>
+    <string name="name">Имя</string>
+    <string name="namehint">Введите имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="surnamehint">Введите фамилию</string>
+    <string name="email2">Электронная почта</string>
+    <string name="savebtn">Сохранить</string>
+    <string name="email_address"></string>
 
 
 </resources>
